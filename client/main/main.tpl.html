@@ -3,7 +3,7 @@
   <nav class='navbar navbar-default navbar-fixed-top' role='navigation'>
     <div class='container-fluid'>
       <div class='navbar-header'>
-        <a class="navbar-brand" ui-sref='myApp.main'>myApp</a>
+        <a class="navbar-brand" ui-sref='myApp.main'>Restaurant Selection</a>
       </div>
       <ul class="nav navbar-nav">
         <li>
@@ -19,6 +19,16 @@
 
 <!-- template loaded here -->
 <main ui-view>
+  <div class = 'restaurant'>
+  <div ng-controller = "linkController">{{data}}
+    <div ng-repeat = "restaurant in restaurants">
+      <img src='/redirect_icon.png'/>
+      <div class='info'>
+        <div class='title'>{{restaurant.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </main>
 

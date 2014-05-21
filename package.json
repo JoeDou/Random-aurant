@@ -4,13 +4,13 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^1.2.4",
-    "connect": "^2.16.2",
     "ejs": "^1.0.0",
-    "express": "*",
+    "express": "~3.4.8",
     "express-partials": "^0.2.0",
     "mongoose": "*",
     "q": "*",
-    "request": "^2.35.0"
+    "request": "^2.35.0",
+    "yelp": "^0.1.1"
   },
   "devDependencies": {
     "gulp": "*",

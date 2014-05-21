@@ -1,3 +1,202 @@
 #messages {
   color: lightgrey
 }
+
+body {
+  margin: 0;
+  margin-top: 10px;
+  font-family: arial, sans-serif;
+}
+
+a {
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-style: italic;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.navigation {
+  width: 100%;
+  height: 40px;
+  background-color: lightblue;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation li {
+  float: left;
+}
+
+.navigation .logout {
+  float: right;
+}
+
+.navigation li a , .logout {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.navigation li a:hover {
+  background-color: #ddd;
+}
+
+.navigation li a.selected {
+  background-color: #ccc;
+}
+
+#container {
+  clear: both;
+  margin-top: 10px;
+}
+
+.restaurant {
+  clear: both;
+  margin-bottom: 10px;
+  padding: 10px;
+  min-height: 50px;
+}
+
+.restaurant:hover {
+  background-color: #efe;
+}
+
+.restaurant img {
+  float: left;
+  margin: 10px;
+  height: 35px;
+  width: 35px;
+}
+
+.restaurant .visits {
+  float: right;
+  margin-right: 10px;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.restaurant .visits .count {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.restaurant .title {
+  font-weight: 600;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.restaurant .distance {
+  font-size: 13px;
+}
+
+.restaurant .cost {
+  font-size: 13px;
+}
+
+.restaurant .visit {
+  font-size: 13px;
+}
+
+.restaurant .original {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.restaurant .info {
+  margin-left: 55px;
+}
+
+form {
+  margin: 10px;
+}
+
+form input[type=text], form input[type=password] {
+  width: 300px;
+  display: block;
+  font-size: 13px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.error {
+  background-color: #fee;
+  color: #a33;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.ui-slide {
+  margin: 10px;
+}
+
+.submit {
+  margin:10px;
+  font-size: 20px;
+}
+
+.submit {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.submit:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.wrap {
+  /* force the div to properly contain the floated images: */
+  position:relative;
+  float:left;
+  clear:none;
+  overflow:hidden;
+}
+.wrap img {
+  position:relative;
+  z-index:1;
+}
+.wrap .desc {
+  display:block;
+  position:absolute;
+  width:100%;
+  top:50%;
+  left:0;
+  z-index:2;
+  text-align:center;
+  font-size: 30;
+  color: red;
+}
+
+.signup{
+  font-size: 13px;
+}

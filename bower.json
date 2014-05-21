@@ -6,7 +6,7 @@
     "angular": "*" ,
     "angular-cookies": "*",
     "ng-Fx": "*",
-    "angular-ui-router": "*"
+    "angular-router": "*"
   }
 }
 

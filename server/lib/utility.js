@@ -1,24 +1,54 @@
 var request = require('request');
 
-exports.getUrlTitle = function(url, cb) {
-  request(url, function(err, res, html) {
-    if (err) {
-      console.log('Error reading url heading: ', err);
-      return cb(err);
-    } else {
-      var tag = /<title>(.*)<\/title>/;
-      var match = html.match(tag);
-      var title = match ? match[1] : url;
-      return cb(err, title);
-    }
-  });
+exports.applyWeighting = function(list, factor){
+  console.log('apply', list, factor);
+  var array = [];
+  totalUnits = {
+    cost: 0,
+    distance: 0,
+    frequency: [],
+  };
+  var total = 0;
+
+  total = factor.cost*1 + factor.distance*1 + factor.frequency*1;
+  // console.log('total:', total);
+
+  for (var i = 0; i < list.length; i++) {
+    totalUnits.cost += list[i].cost*1;
+    totalUnits.distance += list[i].distance*1;
+    totalUnits.frequency.push(list[i].visits);
+  }
+  totalUnits.frequency.sort(function(a,b){return a-b});
+  console.log('sorted frequency', totalUnits.frequency);
+
+  for (i = 0; i < list.length; i++) {
+    sum = (list[i].cost/totalUnits.cost)*factor.cost +
+          (list[i].distance/totalUnits.distance)*factor.distance +
+          findFrequencyFactor(totalUnits.frequency, list[i].visits, factor.frequency);
+    var range = sum / total;
+    array.push({name: list[i].name, range: range});
+  }
+
+  console.log('weighted array', array);
+  return array;
+
 };
 
-// var rValidUrl = /^(?!mailto:)(?:(?:https?|ftp):\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[0-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))|localhost)(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+var findFrequencyFactor = function(frequencyArray, visit, factor){
+  var totalUnit = (1+frequencyArray.length)*frequencyArray.length/2;
+  var index = frequencyArray.indexOf(visit);
+  var i = index+1;
+  var sum = index+1;
 
-// exports.isValidUrl = function(url) {
-//   return url.match(rValidUrl);
-// };
+  while((frequencyArray[i] === frequencyArray[index]) || 
+        (i < frequencyArray.length)){
+    sum = sum+i+1;
+    i++;
+  }
+
+  var output = ((sum/(i-index))/totalUnit)*factor;
+  return output; 
+}
 
 exports.isLoggedIn = function(req, res) {
   return req.session ? !!req.session.user : false;
@@ -35,6 +65,6 @@ exports.checkUser = function(req, res, next) {
 exports.createSession = function(req, res, newUser) {
   return req.session.regenerate(function() {
       req.session.user = newUser;
-      res.redirect('/');
+      //res.redirect('/');
     });
 };

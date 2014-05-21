@@ -1,0 +1,21 @@
+<div class = 'restaurant'>
+  <div ng-controller = "restaurantController">{{data}}
+    <div ng-repeat = "restaurant in restaurants">
+      <img src= {{restaurant.image_url}} />
+      <div class='info'>
+        <div class='title'>{{restaurant.name}}</div>
+        <div>
+          <span class='distance'>Distance: {{restaurant.distance}}</span>
+          <span class='cost'>Cost: {{restaurant.cost}}</span>
+          <span class='visit'>Visits: {{restaurant.visits}} </span>
+        </div>
+        <div>
+            <span class='visit'>address: {{restaurant.address}} </span>
+          </div>
+          <div>   
+            <span class='visit'>url: {{restaurant.url}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

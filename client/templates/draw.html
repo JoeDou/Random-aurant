@@ -1,0 +1,48 @@
+    <div ng-controller = 'drawController'>
+
+      <form>
+          <div>
+            <div>
+              <label for='fac.frequency'>Frequency:
+                <span ng-bind='fac.frequency'>5</span>
+              </label>
+            </div>
+            <input type="range" ng-model="fac.frequency" min="0" max="10" step="0.5" style="width: 140px" class="ui-slide">
+          </div>
+          
+          <div>
+            <div class=range-label>
+              <label for='fac.cost'>Cost:
+                <span ng-bind='fac.cost'>5</span>
+              </label>
+            </div>
+            <input type="range" ng-model="fac.cost" min="0" max="10" step="0.5" style="width: 140px" class="ui-slide">
+          </div>
+
+          <div>
+            <div>
+              <label for='fac.distance'>Distance:
+                <span ng-bind='fac.distance'>5</span>
+              </label>
+            </div>
+          </div>
+            <input type="range" ng-model="fac.distance" min="0" max="10" step="0.5" style="width: 140px" class="ui-slide">
+
+          <div>
+              <input type="submit" class = 'submit'value="I'm FEELING Lucky" ng-click='update(fac)'>
+          </div>    
+      </form>
+
+      <div ng-show='showDraw'>
+<!--         <img src='./img/restaurant.png'/>
+        <div class='info'>
+          <div class='title'>{{resDraw}}</div>
+        </div> -->
+        <div class="wrap">
+          <img src="./img/winner3.gif" />
+          <h1 class="desc">{{resDraw}}</h1>
+        </div>
+      </div>
+
+    </div>
+

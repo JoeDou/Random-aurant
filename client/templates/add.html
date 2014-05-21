@@ -1,0 +1,61 @@
+<div ng-controller = 'yelpController'>{{data}}
+  <div style="width: 100%;">
+    <div style="float:left; width: 40%">
+<!--       <form onsubmit="this.reset();">
+ -->      <form>
+
+        <div>
+          <label for="name"> Restaurant Name:</label>
+          <input id="name" type="text" name="name" ng-model='search.storeName'>
+        </div>
+        <div>
+          <label for="cost">Address/Area Code:</label>
+          <input id="cost" type="text" name="cost" ng-model='search.storeLocation'>
+        </div>
+        <div>
+          <input type="submit" value="Search" ng-click='search(search)'>
+        </div>
+      </form>
+    </div>
+    <div style="float:right;">
+      <form onsubmit="this.reset();">
+        <div>
+          <div for="name"> Restaurant Name:</div>
+          <div for='name'> {{selectedSearch.name}}</div>
+        </div>
+        <div>
+          <label for="cost">Cost:</label>
+          <input id="cost" type="text" name="cost" ng-model='rest.cost'>
+        </div>
+        <div>
+          <label for="distance">Distance:</label>
+          <input id="distance" type="text" name="distance" ng-model ='rest.distance'>
+        </div>
+        <div>
+          <input type="submit" value="Add" ng-click='update(rest)'>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <div class = 'restaurant'>
+      <div ng-repeat = "search in searchData">
+        <img src= {{search.image_url}} />
+        <div class='info'>
+          <div class='title' ng-click = 'addName(search)'>{{search.name}}</div>
+          <div>
+            <span class='distance'>phone: {{search.phone}}</span>
+            <span class='cost'>rating: {{search.rating}}</span>
+          </div>
+          <div>
+            <span class='visit'>address: {{search.location.address[0]}} </span>
+          </div>
+          <div>   
+            <span class='visit'>url: {{search.url}} </span>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
